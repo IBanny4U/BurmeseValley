@@ -11,7 +11,7 @@ This is my first game trying with java i'm aiming to write farm game
 
 3. Prepare Map
 
-4.Draw and add inventory feature
+4. Draw and add inventory feature
 
 5. Draw and add Wepon,tool and etc 
 
