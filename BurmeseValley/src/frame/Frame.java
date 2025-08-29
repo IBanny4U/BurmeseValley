@@ -2,6 +2,8 @@ package frame;
 
 import javax.swing.JPanel;
 
+import entities.Player;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -21,9 +23,9 @@ public class Frame extends JPanel implements Runnable{
 
 
      final int originalTileSize = 16;   //W x H = 16:16
-     final int scale = 3;           // When The Screen become large it will become 48x48
+     final int scale = 4;           // When The Screen become large it will become 48x48
 
-    final int chaTileSize =  originalTileSize * scale ; //48
+    public final int chaTileSize =  originalTileSize * scale ; //48
 
     //This one is How many tile i want to show in screen let's try 16x12 4:3
     // but i have to multiply with cha size like 48x16 
@@ -40,6 +42,11 @@ public class Frame extends JPanel implements Runnable{
         //IDk much but Just Trying for the first time 
         //We need Run() methode for implenting runnable it is make by Runnable class not me
         Thread gameThread;
+
+
+
+
+       
         
         
 
@@ -48,19 +55,21 @@ public class Frame extends JPanel implements Runnable{
         KeyHandler keyH = new KeyHandler();
 
 
-        //This is Player Podition when Started
-        int playerX  = 100; // This is from left top coner from left X
-        int playerY = 100; //This is from left top coner to buttom Y
-        int playerSpeed = 4; // This line mean player movent is 4 pixel per  pressed
+        
+
+
+         //This is Player Class Declearation
 
 
 
+                                               //This mean this class Frame 
+        Player player = new Player(this,keyH);
 
     //Constructor
     public Frame (){
 
             this.setPreferredSize(new Dimension(maxScreenWidth,maxScreenHight));
-            this.setBackground(Color.BLACK); // Because I hate to write with seeing nothing lmao
+            this.setBackground(Color.WHITE); // Because I hate to write with seeing nothing lmao
             
             //I don't know much about this but long story short it is improve game
             //rendering Perfomance 
@@ -138,7 +147,7 @@ public class Frame extends JPanel implements Runnable{
 
                 if(delta >= 1 ){
 
-                                 Update();  
+                                 Update();                      //UPDATE N REPAINT HERE
                                  repaint();
                                  delta --;  
                                  drawCount ++;
@@ -164,10 +173,10 @@ public class Frame extends JPanel implements Runnable{
 
 
 
-                    //    Update();
+                     //  Update();
 
                         //repaint is build in methode when we use paintComponent not by me
-                   //     repaint();
+                     //  repaint();
 
 
 
@@ -179,47 +188,8 @@ public class Frame extends JPanel implements Runnable{
     }
                                 //This is for userUpdate when user move it will update
       public void Update(){
-
-
-                //This Calculation is player position releated to speed with key handler
-
-                if(keyH.leftA == true){
-                        playerX -= playerSpeed; 
-                        // if player pressed A it will move to left  we are in 100pixel X position so it will - and move to left        
-
-                }else if
-                (keyH.midS == true){
-                        playerY += playerSpeed; 
-                        // if player pressed S it will move to down  100 pixel move to Y position  + and move to down      
-
-                }else if
-                (keyH.rightD == true){
-                        playerX += playerSpeed; 
-                        // if player pressed D it will move to right   100 pixle  move to X position + and move to right     
-
-                }else if
-                (keyH.upW == true){
-                        playerY -= playerSpeed; 
-                        // if player pressed A it will move to top  100 pixel  move to Y position - and move to top     
-
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                //player methode is in entities package
+                player.update();
 
 
          };
@@ -233,13 +203,9 @@ public class Frame extends JPanel implements Runnable{
                 //This is like we are overwrting Graphic to Graphics2D 
                 //Graphic2d have more function so that why we change
                 Graphics2D g2D =  (Graphics2D)g;
-                g2D.setColor(Color.white);
+    
 
-                //we will fill reactangle to out frame x,y,w,h
-                //x is from frame top y is from frame size rectangle will exists
-                //chaTileSize is charater size we alrady figure out
-                g2D.fillRect(playerX,playerY, chaTileSize, chaTileSize);
-
+                        player.draw(g2D);
 
                 //IDk much about dispose but it said like to save memory 
                 g2D.dispose();
