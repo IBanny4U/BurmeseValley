@@ -7,7 +7,7 @@ This is my first game trying with java i'm aiming to write farm game
   
 1. Add frame and keyinput (AWSD) ✓
   
-2. Draw and put Character (Player,Map,NPC,Monster)
+2. Draw and put Character (Player,Map,NPC,Monster) 30%Done
 
 3. Prepare Map
 
