@@ -5,7 +5,7 @@ This is my first game trying with java i'm aiming to write farm game
 
 Roadmap 
 1. Add frame and keyinput (AWSD) ✓
-2. Draw and put Character (Player,NPC,Monster)
+2. Draw and put Character (Player,Map,NPC,Monster)
 3. Prepare Map
 4.Draw and add inventory feature
 5. Draw and add Wepon,tool and etc 
