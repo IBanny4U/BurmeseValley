@@ -23,7 +23,7 @@ public class App {
             window.setResizable(false);
             window.setTitle("BurmeseValley");
 
-
+           
             //Calling packaage
 
              Frame GamePanel = new Frame();
@@ -31,14 +31,15 @@ public class App {
 
             //Add to window
             window.add(GamePanel);
+              GamePanel.startTheGame();
 
             //Pack make  Reponsive with Dimension 
-            window.pack();
+             window.pack();
+            
+           
 
-             GamePanel.startTheGame();
 
-
-
+             
 
 
 
@@ -50,8 +51,10 @@ public class App {
                                         //Remeber This this setVisibleline is a ashit even you right it make bad your dayyyyyyyy shhhhtiittt
                                         //I stuck in choossing path because of this
             window.setVisible(true);
-            window.setLocationRelativeTo(null); // The window will pop in the middele of the screen
 
+           
+            window.setLocationRelativeTo(null); // The window will pop in the middele of the screen
+                   
             
 
 

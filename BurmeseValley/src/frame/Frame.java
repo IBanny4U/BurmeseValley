@@ -49,7 +49,7 @@ public class Frame extends JPanel implements Runnable{
         //This is Tile Section
 
                                                 //this mean this frame
-        TileMananger tiles = new TileMananger(this);
+       TileMananger Invtiles = new TileMananger(this);
        
         
         
@@ -73,7 +73,7 @@ public class Frame extends JPanel implements Runnable{
     public Frame (){
 
             this.setPreferredSize(new Dimension(maxScreenWidth,maxScreenHight));
-            this.setBackground(Color.WHITE); // Because I hate to write with seeing nothing lmao
+         //  this.setBackground(Color.white); // Because I hate to write with seeing nothing lmao
             
             //I don't know much about this but long story short it is improve game
             //rendering Perfomance 
@@ -209,13 +209,13 @@ public class Frame extends JPanel implements Runnable{
                 Graphics2D g2D =  (Graphics2D)g;
 
 
-                 tiles.drawGraphic(g2D);    //make sure that tiles will first draw than player or player will disspear
+     Invtiles.drawGraphic(g2D);    //make sure that tiles will first draw than player or player will disspear
 
-                  player.draw(g2D);
+              player.draw(g2D);
                       
                 
                 //IDk much about dispose but it said like to save memory 
-                g2D.dispose();
+               g2D.dispose();
 
         }
 
