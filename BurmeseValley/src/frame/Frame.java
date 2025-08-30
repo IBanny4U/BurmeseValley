@@ -9,10 +9,11 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-
-
 //Other Package
+
 import input.KeyHandler;
+
+import tiles.*;
 
 public class Frame extends JPanel implements Runnable{
 
@@ -23,19 +24,19 @@ public class Frame extends JPanel implements Runnable{
 
 
      final int originalTileSize = 16;   //W x H = 16:16
-     final int scale = 4;           // When The Screen become large it will become 48x48
+     final int scale = 3;           // When The Screen become large it will become 48x48
 
-    public final int chaTileSize =  originalTileSize * scale ; //48
+    public final int chaTileSize =  originalTileSize * scale ; //48 //64
 
     //This one is How many tile i want to show in screen let's try 16x12 4:3
     // but i have to multiply with cha size like 48x16 
 
-    final int screenCol = 16;
-    final int screenRow = 12; //4:3
+    public final int screenCol = 16;
+    public final int screenRow = 12; //4:3
 
 
-    final int maxScreenWidth = screenCol * chaTileSize; //So We got 768 Pixel
-    final int maxScreenHight = screenRow * chaTileSize ; //So We got 576 Pixel  
+    final int maxScreenWidth = screenCol * chaTileSize; //So We got 768 Pixel scale 3 //scale4 1024
+    final int maxScreenHight = screenRow * chaTileSize ; //So We got 576 Pixel  //scale4 768
     //This is Totla frame character will  be 48x48 Pixel in Frame width 768 Pixel and Height 576 Pixel
 
         //As I know gameThread is used to loop our game again and again 
@@ -45,7 +46,10 @@ public class Frame extends JPanel implements Runnable{
 
 
 
+        //This is Tile Section
 
+                                                //this mean this frame
+       TileMananger Invtiles = new TileMananger(this);
        
         
         
@@ -69,7 +73,7 @@ public class Frame extends JPanel implements Runnable{
     public Frame (){
 
             this.setPreferredSize(new Dimension(maxScreenWidth,maxScreenHight));
-            this.setBackground(Color.WHITE); // Because I hate to write with seeing nothing lmao
+         //  this.setBackground(Color.white); // Because I hate to write with seeing nothing lmao
             
             //I don't know much about this but long story short it is improve game
             //rendering Perfomance 
@@ -203,12 +207,15 @@ public class Frame extends JPanel implements Runnable{
                 //This is like we are overwrting Graphic to Graphics2D 
                 //Graphic2d have more function so that why we change
                 Graphics2D g2D =  (Graphics2D)g;
-    
 
-                        player.draw(g2D);
 
+     Invtiles.drawGraphic(g2D);    //make sure that tiles will first draw than player or player will disspear
+
+              player.draw(g2D);
+                      
+                
                 //IDk much about dispose but it said like to save memory 
-                g2D.dispose();
+               g2D.dispose();
 
         }
 
