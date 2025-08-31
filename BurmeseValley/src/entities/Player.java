@@ -2,6 +2,7 @@ package entities;
 
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.io.IOException;
 
 
@@ -19,6 +20,9 @@ public class Player extends Entity {
     Frame f1;
     KeyHandler H;
 
+                        //we need to give parameter
+        
+    
 
   public  Player(Frame f1,KeyHandler H){
                     //This mean this calss the other is input
@@ -26,6 +30,30 @@ public class Player extends Entity {
         this.H = H;
         setDefauleValue();
         getPlayerImage();
+
+
+
+
+
+
+        collisionArea = new Rectangle();
+        collisionArea.x = 10;
+        collisionArea.y = 36;
+        collisionArea.width = 32; //my pixel is now 48 so i take left right as 8 it's 16 then 16-48 = 32 
+        collisionArea.height = 50 ; // I have height like 96 so i will decide to take 60 as half then a little bit
+
+
+            
+
+
+
+
+
+
+
+
+
+
 
     }
     public void setDefauleValue(){
@@ -100,7 +128,7 @@ public class Player extends Entity {
                 if(H.leftA == true){
                         direction = "Left";
                     
-                        positionX -= speed; 
+                      //  positionX -= speed; 
                         // if player pressed A it will move to left  we are in 100pixel X position so it will - and move to left        
 
                 }else if
@@ -108,21 +136,21 @@ public class Player extends Entity {
                         direction = "Down";
                   
                         
-                        positionY += speed; 
+                       // positionY += speed; 
                         // if player pressed S it will move to down  100 pixel move to Y position  + and move to down      
 
                 }else if
                 (H.rightD == true){
                      direction = "Right";
                   
-                        positionX += speed; 
+                      //  positionX += speed; 
                         // if player pressed D it will move to right   100 pixle  move to X position + and move to right     
 
                 }else if
                 (H.upW == true){
                          direction = "Top";
                        
-                        positionY -= speed; 
+                       // positionY -= speed; 
                         // if player pressed A it will move to top  100 pixel  move to Y position - and move to top     
 
                 }
@@ -130,8 +158,37 @@ public class Player extends Entity {
 
 
 
+                    //Collison process here
+                    collisionOn = false;
+                    //Make sure cD as public
+                    //this mean player class that's sub class of entites that we take as parameter
+                    f1.cD.checkTile(this);
+
+                    //Movemnt with collision
+
+                    if(collisionOn == false){
+
+                            switch (direction) {
+                                case "Top":
+                                    positionY -= speed; 
+                                    break;
+                            
+                                case "Left":
+                                    positionX -= speed; 
+                                    break;
+                                case "Right":
+                                    positionX += speed; 
+                                    break;
+                                case "Down":
+                                    positionY += speed; 
+                                    break;
+                             
+                                default:
+                                    break;
+                            }
 
 
+                    }
 
 
 

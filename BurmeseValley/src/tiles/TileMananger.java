@@ -15,11 +15,11 @@ import frame.Frame;
 public class TileMananger {
     
         Frame f2;       //This is our frame class
-        Tiles [] tileInv;  //This Tile is Tile class we create and take as Object array it might exisit depend on what u fill as
+      public Tiles [] tileInv;  //This Tile is Tile class we create and take as Object array it might exisit depend on what u fill as
                         //Tips:  Class can make array of object 
 
 
-        int mapData [][];
+     public int mapData [][];
 
 
 
@@ -57,31 +57,41 @@ public class TileMananger {
                     tileInv[0] = new Tiles();  
                     //This is calling image variable inside Tileclass as .image then we took the photo as buffered image
                     tileInv[0].image = ImageIO.read(getClass().getResourceAsStream("../res/resTiles/OakFloor1.png"));
+                     tileInv[0].collision = false ;
+                    
 
                     tileInv[1] = new Tiles();
                     tileInv[1].image = ImageIO.read(getClass().getResourceAsStream("../res/resTiles/leftwallOakfillblack.png"));
+                    tileInv[1].collision = true ;
 
                     tileInv[2] = new Tiles();
                     tileInv[2].image = ImageIO.read(getClass().getResourceAsStream("../res/resTiles/rightwallOakfillblack.png"));
+                    tileInv[2].collision = true ;
 
 
                     tileInv[3] = new Tiles();
                     tileInv[3].image = ImageIO.read(getClass().getResourceAsStream("../res/resTiles/topwallOakfillblack.png"));
+                    tileInv[3].collision = true ;
 
                     tileInv[4] = new Tiles();
                     tileInv[4].image = ImageIO.read(getClass().getResourceAsStream("../res/resTiles/downwallOakfillblack.png"));
+                    tileInv[4].collision = true ;
 
                     tileInv[5] = new Tiles();
                     tileInv[5].image = ImageIO.read(getClass().getResourceAsStream("../res/resTiles/leftConer.png"));
+                    tileInv[5].collision = true ;
 
                     tileInv[6] = new Tiles();
                     tileInv[6].image = ImageIO.read(getClass().getResourceAsStream("../res/resTiles/rightconerup.png"));
+                     tileInv[6].collision = true ;
 
                     tileInv[7] = new Tiles();
                     tileInv[7].image = ImageIO.read(getClass().getResourceAsStream("../res/resTiles/rightconerdown.png"));
+                     tileInv[7].collision = true ;
 
                     tileInv[8] = new Tiles();
                     tileInv[8].image = ImageIO.read(getClass().getResourceAsStream("../res/resTiles/lefttconerdown.png"));
+                     tileInv[8].collision = true ;
 
                     
 

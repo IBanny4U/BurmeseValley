@@ -1,4 +1,5 @@
 package entities;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 
@@ -30,6 +31,15 @@ public class Entity {
         //Depend on charScale i choose 48x96  scale is 16x3 name like chartile in frame.java
         public int character16x3W = 48 ;
         public int character16x3H = 96 ;  
+
+
+        public Rectangle collisionArea ;             //(x,y,w,h)  we will initialize invisible rectangle in entity we want like player monster
+                                                    //This Rectangle is like build-in class we can declear as obj to keep x,y,w,h
+
+
+
+
+        public boolean collisionOn = false ;         //make false as default
 
 
 

@@ -2,6 +2,7 @@ package frame;
 
 import javax.swing.JPanel;
 
+import collisonDector.collisonDector;
 import entities.Player;
 
 import java.awt.Color;
@@ -49,7 +50,7 @@ public class Frame extends JPanel implements Runnable{
         //This is Tile Section
 
                                                 //this mean this frame
-       TileMananger Invtiles = new TileMananger(this);
+     public  TileMananger Invtiles = new TileMananger(this);
        
         
         
@@ -68,6 +69,26 @@ public class Frame extends JPanel implements Runnable{
 
                                                //This mean this class Frame 
         Player player = new Player(this,keyH);
+
+
+
+        //This is Collision Dector
+        //Now frame have collison checker also player and other thing can use this cD obj
+
+       public collisonDector cD = new collisonDector(this);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Constructor
     public Frame (){
@@ -211,7 +232,7 @@ public class Frame extends JPanel implements Runnable{
 
      Invtiles.drawGraphic(g2D);    //make sure that tiles will first draw than player or player will disspear
 
-              player.draw(g2D);
+           player.draw(g2D);
                       
                 
                 //IDk much about dispose but it said like to save memory 
