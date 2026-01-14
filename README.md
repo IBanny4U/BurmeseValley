@@ -1,4 +1,4 @@
-# BurmeseValley
+# BurmeseValley (Suspended progress)
 Trying to develop game and studies from them
 
 This is my first game trying with java i'm aiming to write farm game 
